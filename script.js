@@ -323,3 +323,23 @@ var y = document.getElementById("year"); if (y) y.textContent = String(new Date(
 fillTicker();
 hdrState();
 })();
+
+/* Немая петля в фото-плите: src только в кадре, показ по событию playing */
+(function(){
+  var vids = [].slice.call(document.querySelectorAll("video.loop[data-src]"));
+  if (!vids.length || !("IntersectionObserver" in window)) return;
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  vids.forEach(function(v){ v.addEventListener("playing", function(){ v.classList.add("is-live"); }); });
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      var v = e.target;
+      if (e.isIntersecting) {
+        if (!v.getAttribute("src")) v.src = v.dataset.src;
+        var p = v.play(); if (p && p.catch) p.catch(function(){});
+      } else if (v.getAttribute("src")) {
+        v.pause(); v.classList.remove("is-live"); v.removeAttribute("src"); v.load();
+      }
+    });
+  }, { threshold: 0.55 });
+  vids.forEach(function(v){ io.observe(v); });
+})();
