@@ -188,7 +188,7 @@ html.no-plate .curve .band{opacity:1}
   .hero-in{gap:14px;padding-bottom:18px}
   .hero .kick{font-size:10.5px;letter-spacing:.12em}
   .hero .bg img{object-position:50% 50%}
-  .kin{font-size:clamp(38px,11.4vw,60px)}
+  .kin{font-size:clamp(32px,10.2vw,60px)}
   .h1 .l2{font-size:clamp(20px,5.6vw,28px)}
   .hero .btns{width:100%}
   .hero .btns .btn{flex:1 1 auto}
@@ -439,4 +439,12 @@ html:not(.js) .rv{opacity:1;transform:none}
 /* лесенка: у .pw-flip фото слева, текст справа (только на широком экране) */
 @media(min-width:861px){
   .pw-flip .ph{order:-1;justify-self:start}
+}
+
+/* мобайл: все CTA на всю ширину колонки - одна линия слева и справа */
+@media(max-width:760px){
+  .plate .txt .btns,.gar .btns,.kl .btns{width:100%}
+  .plate .txt .btns .btn,.gar .btns .btn,.kl .btns .btn{flex:1 1 100%}
+  .igrow{flex-direction:column;align-items:stretch;text-align:center}
+  .igrow .btn{width:100%}
 }
