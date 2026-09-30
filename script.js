@@ -1,9 +1,3 @@
-/* ============================================================
-   Ремонт холодильников в Алматы - скрипт страницы.
-   Плиты · марево (срезы кадра и заголовка) · кривая термостата в герое ·
-   меню · бегущая строка · лента с кнопками · WhatsApp-ссылки · форма.
-   Библиотек нет. Только русский язык.
-   ============================================================ */
 (function(){
 "use strict";
 var WA = "77773496904";
@@ -11,8 +5,6 @@ var RED = matchMedia("(prefers-reduced-motion: reduce)").matches;
 var HAS_IO = typeof IntersectionObserver === "function";
 var root = document.documentElement;
 
-/* ---------------- КОНВЕРСИИ GOOGLE ADS ----------------
-   Ярлыки задаёт index.html (window.RH_CONV): phone, contact, lead. Пустой ярлык - не шлём. */
 function conv(key){
   var id = (window.RH_CONV || {})[key];
   if (!id || typeof window.gtag !== "function") return;
@@ -26,9 +18,6 @@ document.addEventListener("click", function(e){
   else if (h.indexOf("wa.me") > -1) conv("contact");
 }, true);
 
-/* ---------------- ССЫЛКИ WHATSAPP ----------------
-   Готовый текст по ключу data-wa. Ставится один раз на загрузке, не в момент клика -
-   трекер LeadBot дописывает код обращения в href при клике и ничего не затирает. */
 var WA_TXT = {
   hero:   "Здравствуйте! Нужен ремонт холодильника в Алматы.\nЧто случилось: ",
   diag:   "Здравствуйте! Нужна диагностика холодильника.\nМарка и адрес: ",
@@ -50,7 +39,6 @@ document.querySelectorAll("[data-wa]").forEach(function(a){
   a.target = "_blank"; a.rel = "noopener";
 });
 
-/* ---------------- БЕГУЩАЯ СТРОКА ---------------- */
 var TICK = ["Не морозит","Перемораживает","Не включается","Намерзает лёд","No Frost","Шумит и гудит","Течёт вода","Замена компрессора","Заправка фреоном","Ремонт платы","Side-by-side","Морозильные камеры"];
 function fillTicker(){
   var el = document.getElementById("ticker"); if (!el) return;
@@ -65,7 +53,6 @@ function fillTicker(){
   el.style.setProperty("--tkd", Math.max(14, w / 48) + "s");
 }
 
-/* ---------------- МЕНЮ ---------------- */
 var burger = document.getElementById("burger");
 var mnav = document.getElementById("mnav");
 function closeMenu(){
@@ -79,7 +66,6 @@ if (burger) burger.addEventListener("click", function(){
 if (mnav) mnav.addEventListener("click", function(e){ if (e.target.closest("a")) closeMenu(); });
 addEventListener("keydown", function(e){ if (e.key === "Escape") closeMenu(); });
 
-/* ---------------- ЯКОРЯ ---------------- */
 var HH = function(){ return parseFloat(getComputedStyle(root).getPropertyValue("--hh")) || 64; };
 document.addEventListener("click", function(e){
   var a = e.target.closest('a[href^="#"]'); if (!a) return;
@@ -92,13 +78,9 @@ document.addEventListener("click", function(e){
   try { history.pushState(null, "", "#" + id); } catch(err){}
 });
 
-/* ---------------- ШАПКА ---------------- */
 var hdr = document.getElementById("hdr");
 function hdrState(){ if (hdr) hdr.classList.toggle("solid", scrollY > 40); }
 
-/* ---------------- МАРЕВО: срезы кадра ----------------
-   В каждый .ph и в фон героя кладём 12 пустых срезов; фон им задаётся через --src,
-   когда плита подходит к экрану (иначе картинки грузились бы все сразу). */
 function addStrips(box, n){
   var frag = document.createDocumentFragment();
   for (var i = 0; i < n; i++) frag.appendChild(document.createElement("i")).className = "st";
@@ -109,7 +91,7 @@ var hbg = document.getElementById("hbg");
 if (!RED) {
   phs.forEach(function(ph){ addStrips(ph, 12); });
   if (hbg) addStrips(hbg, 12);
-  /* заголовок героя: пять копий-срезов */
+
   var kin = document.getElementById("kin");
   if (kin) {
     var txt = kin.querySelector(".kb").textContent;
@@ -134,9 +116,6 @@ function phSrc(ph){
   ph.dataset.ready = "1";
 }
 
-/* ---------------- КРИВАЯ ТЕРМОСТАТА ----------------
-   k = 0: сбой, температура плавает и растёт (янтарный); k = 1: норма, ровный цикл
-   термостата внутри полосы допуска (ледяной синий). Путь строится в JS, всё остальное - CSS. */
 var curve = document.getElementById("curve");
 var cpath = document.getElementById("cpath");
 var ctag = document.getElementById("ctag");
@@ -165,9 +144,6 @@ function drawCurve(k){
   if (ctag) ctag.textContent = calmNow ? "Норма: стабильно" : "Сбой: греется";
 }
 
-/* ---------------- ПЛИТЫ ----------------
-   Один слушатель scroll через rAF. На каждую обёртку .pw пишем
-   --enter / --exit / --stay и --open (марево застывает), герою ещё --f (интро). */
 var pws = [].slice.call(document.querySelectorAll(".pw"));
 var heroPw = document.getElementById("top");
 var hero = document.getElementById("hero");
@@ -200,7 +176,7 @@ function update(){
     }
   });
   hdrState();
-  /* липкая панель: после 55 % первого экрана, прячется на контактах */
+
   if (bar) {
     var onKont = kont && kont.getBoundingClientRect().top < H * .6;
     bar.classList.toggle("show", scrollY > H * .55 && !onKont);
@@ -224,8 +200,7 @@ if (RED) {
   addEventListener("load", function(){ heroSrc(); update(); });
   var himg = hbg && hbg.querySelector("img");
   if (himg) { if (himg.complete) heroSrc(); else himg.addEventListener("load", heroSrc); }
-  /* интро 1250 мс: кадр и заголовок застывают из марева, кривая термостата прочерчивается.
-     Пропускаем при хэше / прокрутке - человек из рекламы сразу видит собранный экран. */
+
   var skip = location.hash || scrollY > 80;
   if (skip) {
     root.classList.add("no-intro");
@@ -246,7 +221,7 @@ if (RED) {
       else { introDone = true; if (cpath) { cpath.style.strokeDasharray = ""; cpath.style.strokeDashoffset = ""; } }
     };
     requestAnimationFrame(function(){ if (heroPw) heroPw.classList.add("on"); requestAnimationFrame(step); });
-    /* страховка: если rAF не тикает (фоновая вкладка), собрать экран по таймеру */
+
     setTimeout(function(){ if (heroPw) heroPw.classList.add("on"); }, 400);
     setTimeout(function(){ if (!introDone) { introDone = true; introK = 1; if (cpath) { cpath.style.strokeDasharray = ""; cpath.style.strokeDashoffset = ""; } update(); } }, 1900);
   }
@@ -254,7 +229,6 @@ if (RED) {
 window.plateSync = function(){ introDone = true; introK = 1; if (cpath) { cpath.style.strokeDasharray = ""; cpath.style.strokeDashoffset = ""; } if (heroPw) heroPw.classList.add("on"); update(); };
 addEventListener("hashchange", function(){ root.classList.add("no-intro"); });
 
-/* ---------------- ПОЯВЛЕНИЕ В КАТАЛОЖНЫХ СЕКЦИЯХ ---------------- */
 if (HAS_IO && !RED) {
   root.classList.add("js");
   var io = new IntersectionObserver(function(es){
@@ -268,9 +242,6 @@ if (HAS_IO && !RED) {
   document.querySelectorAll(".rv").forEach(function(el){ el.classList.add("in"); });
 }
 
-/* ---------------- ЛЕНТА С КНОПКАМИ ----------------
-   Шаг - ровно одна карточка (ширина + gap из стилей), крайняя кнопка гаснет,
-   обе прячутся, если всё влезло. Ленте tabindex=0 - листается стрелками. */
 var lanes = [];
 document.querySelectorAll(".lane-w").forEach(function(w){
   var lane = w.querySelector(".lane"), prev = w.querySelector(".lbtn.prev"), next = w.querySelector(".lbtn.next");
@@ -303,12 +274,11 @@ var rsTimer;
 addEventListener("resize", function(){ clearTimeout(rsTimer); rsTimer = setTimeout(function(){ fillTicker(); lanes.forEach(function(l){ l.state(); }); }, 200); });
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(fillTicker);
 
-/* ---------------- ФОРМА → WhatsApp ---------------- */
 var form = document.getElementById("form");
 if (form) form.addEventListener("submit", function(e){
   e.preventDefault();
   var ok = document.getElementById("fmok"), err = document.getElementById("fmerr");
-  if (form.company && form.company.value) return;          /* honeypot */
+  if (form.company && form.company.value) return;
   var name = form.name.value.trim(), phone = form.phone.value.trim(), msg = form.msg.value.trim();
   if (!name || phone.replace(/\D/g, "").length < 10) { err.hidden = false; ok.hidden = true; return; }
   err.hidden = true;
@@ -318,13 +288,11 @@ if (form) form.addEventListener("submit", function(e){
   window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(t), "_blank", "noopener");
 });
 
-/* ---------------- СТАРТ ---------------- */
 var y = document.getElementById("year"); if (y) y.textContent = String(new Date().getFullYear());
 fillTicker();
 hdrState();
 })();
 
-/* Немая петля в фото-плите: src только в кадре, показ по событию playing */
 (function(){
   var vids = [].slice.call(document.querySelectorAll("video.loop[data-src]"));
   if (!vids.length || !("IntersectionObserver" in window)) return;

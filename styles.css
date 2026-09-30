@@ -1,11 +1,3 @@
-/* ============================================================
-   Ремонт холодильников в Алматы - мастер Андрей Васильев.
-   Сигнатура «стабилизация температуры»: кадр и заголовок входят
-   «маревом» (горизонтальные срезы со сдвигом) и застывают в чистый
-   кадр; в герое кривая термостата успокаивается из сбоя в норму;
-   в каталоге пила цикла тихим фоном.
-   Плиты: .pw (обёртка) > .plate (sticky); прогресс в --enter/--exit/--stay/--open.
-   ============================================================ */
 :root{
   --paper:#F4F7FB; --white:#fff; --ink:#0F1B2D; --navy:#0B1F3F; --deep:#071630;
   --blue:#2563C9; --blue2:#3B82F6; --sky:#DCEAFB; --ice:#EEF4FC; --steel:#46546A;
@@ -30,7 +22,6 @@ button{font:inherit}
 .wrap{width:var(--cw);margin-inline:auto}
 .spr{position:absolute;width:0;height:0;overflow:hidden}
 
-/* ---------- кикер, кнопки ---------- */
 .kick{display:flex;align-items:center;gap:10px;font:700 13px/1.2 var(--ft);letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
 .kick::before{content:"";width:28px;height:2px;flex:0 0 auto;background:currentColor;border-radius:2px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 26px;border-radius:999px;font:600 16px/1 var(--ft);border:1.5px solid transparent;cursor:pointer;transition:transform .25s,background .25s,color .25s,border-color .25s,box-shadow .25s;white-space:nowrap}
@@ -51,7 +42,6 @@ button{font:inherit}
 .iglink:hover{opacity:1;gap:12px}
 .ic{display:block;width:20px;height:20px}
 
-/* ---------- шапка ---------- */
 .hdr{position:fixed;inset:0 0 auto 0;height:var(--hh);z-index:60;color:#fff;transition:background .35s,color .35s,box-shadow .35s}
 .hdr.solid{background:rgba(255,255,255,.9);color:var(--ink);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(15,27,45,.06)}
 .hdr-in{position:relative;width:min(1320px,100% - 32px);margin-inline:auto;height:100%;display:flex;align-items:center;gap:18px}
@@ -103,7 +93,6 @@ body.menu-open{overflow:hidden}
   .logo small{font-size:10.5px}
 }
 
-/* ---------- плиты ---------- */
 .pw{position:relative;height:100svh}
 .pw-hero{height:175svh}
 .plate{position:sticky;top:0;height:100svh;overflow:hidden;transform:scale(calc(1 - .07 * var(--exit)));transform-origin:50% 40%;border-radius:calc(30px * (1 - var(--enter))) calc(30px * (1 - var(--enter))) 0 0;isolation:isolate}
@@ -114,7 +103,6 @@ html.no-plate .plate::after{display:none}
 html.no-plate .pw{--f:1;--open:1;--enter:1;--stay:0}
 .pw[id]{scroll-margin-top:0}
 
-/* марево: срезы кадра со сдвигом, застывают при --open -> 1 */
 .st{position:absolute;inset:0;background:var(--src) center/cover no-repeat;clip-path:inset(var(--t) 0 var(--b) 0);transform:translate3d(calc(var(--amp) * var(--s)),0,0);pointer-events:none}
 .st:nth-of-type(1){--t:0%;--b:91.667%;--s:.9}
 .st:nth-of-type(2){--t:8.333%;--b:83.333%;--s:-.55}
@@ -130,7 +118,6 @@ html.no-plate .pw{--f:1;--open:1;--enter:1;--stay:0}
 .st:nth-of-type(12){--t:91.667%;--b:0%;--s:-.95}
 .pw.still .st,html.no-plate .st{display:none}
 
-/* ---------- герой ---------- */
 .hero{background:var(--deep);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:calc(var(--hh) + 10px) 0 0}
 .hero .bg{position:absolute;inset:0;z-index:0;--amp:calc((1 - var(--f)) * 70px)}
 .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:80% 50%;transform:scale(calc(1.02 + .08 * var(--stay)));transform-origin:75% 50%}
@@ -159,14 +146,12 @@ html.no-plate .pw{--f:1;--open:1;--enter:1;--stay:0}
 .hprice span{font:600 12px/1 var(--ft);letter-spacing:.14em;text-transform:uppercase;color:#B9D4F8}
 .hprice b{font:800 clamp(24px,2.4vw,32px)/1 var(--fd);letter-spacing:-.02em;color:#5EE2A0;white-space:nowrap}
 .hero .iglink{color:#fff}
-/* текст героя поднимается на интро */
+
 .hero .hero-in > *{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
 .pw.on .hero .hero-in > *{opacity:1;transform:none}
 .hero .hero-in > :nth-child(2){transition-delay:.1s}.hero .hero-in > :nth-child(3){transition-delay:.2s}.hero .hero-in > :nth-child(4){transition-delay:.3s}.hero .hero-in > :nth-child(5){transition-delay:.38s}.hero .hero-in > :nth-child(6){transition-delay:.46s}
 html.no-plate .hero .hero-in > *,html.no-intro .hero .hero-in > *{opacity:1;transform:none;transition:none}
 
-
-/* бегущая лента симптомов */
 .tick{position:relative;z-index:3;border-top:1px solid rgba(255,255,255,.14);background:rgba(7,22,48,.55);backdrop-filter:blur(6px);overflow:hidden;padding:13px 0;margin-top:16px}
 .tk{display:flex;width:max-content;animation:tk var(--tkd,40s) linear infinite}
 .tk b{flex:0 0 auto;font:600 12px/1 var(--ft);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.8);padding:0 22px;display:flex;align-items:center;gap:22px;white-space:nowrap}
@@ -193,7 +178,6 @@ html.no-plate .hero .hero-in > *,html.no-intro .hero .hero-in > *{opacity:1;tran
   .hero-in{gap:10px}
 }
 
-/* ---------- плиты услуг ---------- */
 .pp{background:var(--tint,var(--ice));color:var(--ink);display:flex;align-items:center;padding:calc(var(--hh) + 8px) 0 24px}
 .pp-in{position:relative;width:var(--cw);margin-inline:auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
 .plate .txt{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
@@ -222,7 +206,6 @@ html.no-plate .plate .txt > *{opacity:1;transform:none;transition:none}
 }
 @media(max-height:660px) and (min-width:861px){.ph{--phh:min(62svh,440px)}}
 
-/* ---------- обычные секции ---------- */
 .sec{position:relative;padding:clamp(64px,8vw,110px) 0}
 .sec.white{background:#fff}
 .sec.ice{background:var(--ice)}
@@ -238,7 +221,6 @@ html:not(.js) .rv{opacity:1;transform:none}
 .rv:nth-child(2){transition-delay:.08s}.rv:nth-child(3){transition-delay:.16s}.rv:nth-child(4){transition-delay:.24s}.rv:nth-child(5){transition-delay:.32s}.rv:nth-child(6){transition-delay:.4s}
 [id]:not(.pw){scroll-margin-top:calc(var(--hh) + 12px)}
 
-/* доверие */
 .trust{background:#fff;border-bottom:1px solid var(--line)}
 .trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
 .trust .it{padding:26px 22px 26px 0;display:flex;flex-direction:column;gap:6px;border-left:1px solid var(--line);padding-left:22px}
@@ -253,7 +235,6 @@ html:not(.js) .rv{opacity:1;transform:none}
   .trust .it:nth-child(n+3){border-top:1px solid var(--line)}
 }
 
-/* ремонт на дому: фото + шаги */
 .home-g{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(24px,5vw,72px);align-items:center}
 .home-ph{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/5;background:var(--sky);box-shadow:0 30px 60px -30px rgba(11,31,63,.4)}
 .home-ph img{width:100%;height:100%;object-fit:cover}
@@ -267,7 +248,6 @@ html:not(.js) .rv{opacity:1;transform:none}
 .steps .s.g .n{-webkit-text-stroke-color:var(--green)}
 @media(max-width:860px){.home-g{grid-template-columns:1fr}.home-ph{aspect-ratio:4/3}.steps .s{grid-template-columns:48px 1fr;gap:12px;padding:16px 0}.steps .n{font-size:32px}}
 
-/* поломки: сетка карточек */
 .pol{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .pc{position:relative;display:flex;flex-direction:column;gap:10px;padding:26px 24px 22px;border-radius:20px;background:#fff;border:1px solid var(--line);overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s}
 .pc:hover{transform:translateY(-4px);box-shadow:0 24px 40px -28px rgba(11,31,63,.45);border-color:#BBD1F0}
@@ -279,7 +259,6 @@ html:not(.js) .rv{opacity:1;transform:none}
 @media(max-width:960px){.pol{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.pol{grid-template-columns:1fr}.pc{padding:20px 18px 18px}}
 
-/* цены */
 .prices{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(20px,4vw,56px);align-items:start}
 .pr{border-top:1px solid var(--line)}
 .pr .r{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
@@ -295,7 +274,6 @@ html:not(.js) .rv{opacity:1;transform:none}
 .gar li::before{content:"";flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:#5EE2A0;margin-top:7px}
 @media(max-width:860px){.prices{grid-template-columns:1fr}}
 
-/* о мастере */
 .master{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,72px);align-items:center}
 .stub{position:relative;border-radius:22px;overflow:hidden;background:#0F2A55;color:#fff;aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;isolation:isolate}
 .stub::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-45deg,rgba(255,255,255,.06) 0 2px,transparent 2px 12px);z-index:-1}
@@ -317,7 +295,6 @@ html:not(.js) .rv{opacity:1;transform:none}
 @media(max-width:860px){.master{grid-template-columns:1fr}.stub{aspect-ratio:4/3;max-width:440px}.facts{grid-template-columns:1fr 1fr 1fr}}
 @media(max-width:520px){.facts{grid-template-columns:1fr}.facts div{display:flex;align-items:baseline;gap:10px}.facts span{margin:0}}
 
-/* лента работ */
 .lane-w{position:relative;margin-top:clamp(28px,4vw,48px)}
 .lane{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px;outline:none}
 .lane::-webkit-scrollbar{display:none}
@@ -347,7 +324,6 @@ html:not(.js) .rv{opacity:1;transform:none}
 .btn.igb:hover{border-color:#D62976;color:#D62976}
 @media(max-width:600px){.lbtn.prev{left:6px}.lbtn.next{right:6px}}
 
-/* марки + FAQ */
 .brands{display:flex;flex-wrap:wrap;gap:8px 18px;font:500 15px/1.45 var(--ft);color:var(--steel)}
 .brands b{font-weight:600;color:var(--ink)}
 .faq{display:flex;flex-direction:column;border-top:1px solid var(--line)}
@@ -358,7 +334,6 @@ html:not(.js) .rv{opacity:1;transform:none}
 .faq details[open] summary::after{transform:rotate(-135deg)}
 .faq .a{padding:0 0 18px;color:var(--steel);font-size:15px;max-width:none}
 
-/* контакты */
 .kon{background:var(--navy);color:#fff;position:relative;overflow:hidden}
 .kon .wrap{position:relative}
 .kg{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:start}
@@ -385,7 +360,6 @@ html:not(.js) .rv{opacity:1;transform:none}
 .form .fine{font-size:13px;color:var(--steel)}
 @media(max-width:860px){.kg{grid-template-columns:1fr}.form{padding:22px 18px}}
 
-/* подвал */
 .foot{background:var(--deep);color:rgba(255,255,255,.7);padding:28px 0 calc(28px + 84px)}
 .foot .wrap{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between;font-size:14px}
 .foot .logo b{color:#fff}
@@ -393,7 +367,6 @@ html:not(.js) .rv{opacity:1;transform:none}
 .foot .fig svg{width:18px;height:18px}
 @media(min-width:761px){.foot{padding-bottom:28px}}
 
-/* липкая панель на мобильном */
 .bar{position:fixed;left:0;right:0;margin-inline:auto;bottom:calc(14px + env(safe-area-inset-bottom));transform:translateY(calc(100% + 30px));z-index:45;display:flex;gap:4px;background:var(--navy);color:#fff;border-radius:999px;padding:5px;box-shadow:0 14px 34px -10px rgba(0,0,0,.55);transition:transform .45s cubic-bezier(.2,.7,.2,1);width:min(380px,calc(100% - 32px))}
 .bar.show{transform:none}
 .bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;height:50px;border-radius:999px;font:700 15px/1 var(--ft);letter-spacing:.02em}
@@ -402,24 +375,20 @@ html:not(.js) .rv{opacity:1;transform:none}
 .bar a.i{flex:0 0 46px;background:rgba(255,255,255,.1)}
 @media(min-width:761px){.bar{display:none}}
 
-/* ---------- reduced motion ---------- */
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .tk{animation:none}
   *{transition-duration:.01ms!important}
 }
 
-/* ---------- немая петля в фото-плите (видео мастера) ---------- */
 .ph video.loop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity:0;transition:opacity .6s;pointer-events:none}
 .ph video.loop.is-live{opacity:1}
 @media(prefers-reduced-motion:reduce){.ph video.loop{display:none}}
 
-/* лесенка: у .pw-flip фото слева, текст справа (только на широком экране) */
 @media(min-width:861px){
   .pw-flip .ph{order:-1;justify-self:start}
 }
 
-/* мобайл: все CTA на всю ширину колонки - одна линия слева и справа */
 @media(max-width:760px){
   .plate .txt .btns,.gar .btns,.kl .btns{width:100%}
   .plate .txt .btns .btn,.gar .btns .btn,.kl .btns .btn{flex:1 1 100%}
