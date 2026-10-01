@@ -80,6 +80,7 @@ body.menu-open{overflow:hidden}
   .burger{display:block}
   .hbtn span{display:none}
   .hbtn{width:44px;padding:0;justify-content:center}
+  .nav + .hdr-r{margin-left:auto}
 }
 @media(max-width:760px){
   :root{--hh:68px}
@@ -416,3 +417,4 @@ html:not(.js) .rv{opacity:1;transform:none}
 @media(max-width:760px){.hdr .logo b{font-size:14px;letter-spacing:-.03em;white-space:nowrap}.hdr .logo small{font-size:10px}}
 @media(max-width:600px){.sb .btn.sm{white-space:normal;height:auto;min-height:42px;padding:7px 8px;line-height:1.15;text-align:center;font-size:12.5px}.sb .btn.sm svg{width:14px;height:14px}}
 @media(max-width:600px){.sb .btn.sm svg{display:none}}
+@media(max-width:760px){.hdr-in{width:calc(100% - 24px);gap:10px}.hdr .logo{min-width:0}.hdr .logo b{font-size:min(14px,3.55vw)}.hdr-r{flex:0 0 auto}}
