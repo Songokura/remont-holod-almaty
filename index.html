@@ -29,7 +29,7 @@
 <link rel="preload" as="image" href="assets/hero-light.webp" media="(min-width: 761px)" fetchpriority="high">
 <link rel="preload" as="image" href="assets/hero-light-m.webp" media="(max-width: 760px)" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@700;800&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261001-2">
+<link rel="stylesheet" href="styles.css?v=20261001-4">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -83,14 +83,15 @@
   <symbol id="ic-therm" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0zM12 9v8"/></symbol>
   <symbol id="ic-power" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 3v8M6.3 6.5a8 8 0 1 0 11.4 0"/></symbol>
   <symbol id="ic-sound" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></symbol>
+  <symbol id="ic-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></g></symbol>
   <symbol id="ic-drop" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5c3.3 4.3 6.5 7.9 6.5 11.9a6.5 6.5 0 0 1-13 0c0-4 3.2-7.6 6.5-11.9z"/></symbol>
 </svg>
 
 <header class="hdr" id="hdr">
   <div class="hdr-in">
     <a class="logo" href="#top" aria-label="Ремонт холодильников в Алматы - на главную">
-      <b>Ремонт холодильников</b>
-      <small>Мастер Андрей · стаж 25+ лет</small>
+      <b>Ремонт холодильников в Алматы</b>
+      <small>Мастер Андрей · стаж 25 лет</small>
     </a>
     <nav class="nav" aria-label="Разделы">
       <a href="#polomki">Поломки</a>
@@ -131,13 +132,13 @@
     </picture>
   </div>
   <div class="hero-in">
-    <p class="pill"><svg><use href="#ic-user"/></svg>Мастер Андрей · стаж 25+ лет</p>
-    <h1 class="h1">Ремонт холодильников <span>на дому в Алматы</span></h1>
-    <p class="sub">Найду причину и устраню неисправность</p>
+    <p class="pill"><svg><use href="#ic-pin"/></svg>На дому в Алматы</p>
+    <h1 class="h1">Холодильник <span>не морозит?</span></h1>
+    <p class="sub">Найдём причину<br>и устраним неисправность</p>
     <ul class="checks">
       <li><svg><use href="#ic-ok"/></svg>Диагностика и цена до начала работ</li>
       <li><svg><use href="#ic-ok"/></svg>Большинство ремонтов за один визит</li>
-      <li><svg><use href="#ic-ok"/></svg>Гарантия на работу - до 1 года</li>
+      <li><svg><use href="#ic-ok"/></svg>Гарантия на работы - до 1 года</li>
     </ul>
     <div class="hprice" aria-label="Цены">
       <div><i><svg><use href="#ic-search"/></svg></i><p><span>Диагностика</span><b><small>от</small> 7 000 ₸</b></p></div>
@@ -145,12 +146,12 @@
     </div>
     <div class="btns">
       <a class="btn wa" data-wa="hero" href="https://wa.me/77773496904" target="_blank" rel="noopener"><svg><use href="#ic-wa"/></svg><span>Написать в WhatsApp</span></a>
-      <a class="btn solid" href="tel:+77773496904"><svg><use href="#ic-tel"/></svg><span>Позвонить</span></a>
+      <a class="btn out" href="tel:+77773496904"><svg><use href="#ic-tel"/></svg><span>Позвонить</span></a>
     </div>
     <ul class="feats">
       <li><svg><use href="#ic-home"/></svg>Выезд по&nbsp;Алматы</li>
       <li><svg><use href="#ic-gear"/></svg>Ремонт всех популярных марок</li>
-      <li><svg><use href="#ic-shield"/></svg>Качественные запчасти с собой</li>
+      <li><svg><use href="#ic-shield"/></svg>Оригинальные и качественные запчасти</li>
     </ul>
   </div>
 </section>
@@ -159,43 +160,43 @@
   <div class="wrap">
     <div class="head rv">
       <h2>С чем обращаются чаще всего</h2>
-      <p class="lead">Нажмите на свою проблему - в WhatsApp уйдёт готовое сообщение, останется дописать марку и адрес.</p>
+      <p class="lead">Выберите проблему или опишите свою - мы подскажем, в чём причина.</p>
     </div>
     <div class="pol">
       <a class="pc rv" id="slabo-morozit" data-wa="nemor" href="https://wa.me/77773496904" target="_blank" rel="noopener">
         <img src="assets/w-lg.webp" width="720" height="720" alt="Открытый холодильник LG - камера не морозит" loading="lazy" decoding="async">
         <span class="sym"><svg><use href="#ic-snow"/></svg></span>
-        <span class="pt"><b>Не морозит, слабо холодит</b><span>В камере тепло, продукты портятся</span></span>
-      </a>
-      <a class="pc rv" id="ne-otklyuchaetsya" data-wa="neotkl" href="https://wa.me/77773496904" target="_blank" rel="noopener">
-        <img src="assets/rab-displey.webp" width="720" height="720" alt="Табло холодильника side-by-side с температурой камер" loading="lazy" decoding="async">
-        <span class="sym"><svg><use href="#ic-therm"/></svg></span>
-        <span class="pt"><b>Переохлаждает, перемораживает</b><span>Продукты замерзают в камере</span></span>
-      </a>
-      <a class="pc rv" id="ne-vklyuchaetsya" data-wa="nevkl" href="https://wa.me/77773496904" target="_blank" rel="noopener">
-        <img src="assets/w-modul.webp" width="720" height="720" alt="Модуль управления холодильника на ремонте" loading="lazy" decoding="async">
-        <span class="sym"><svg><use href="#ic-power"/></svg></span>
-        <span class="pt"><b>Не включается</b><span>Нет реакции и света</span></span>
+        <span class="pt"><b>Не морозит</b><span>Температура выше нормы</span></span>
       </a>
       <a class="pc rv" id="led" data-wa="led" href="https://wa.me/77773496904" target="_blank" rel="noopener">
         <img src="assets/rab-obmerzanie.webp" width="720" height="720" alt="Обмерзший испаритель холодильника No Frost" loading="lazy" decoding="async">
         <span class="sym"><svg><use href="#ic-snow"/></svg></span>
-        <span class="pt"><b>Намерзает лёд, не работает No Frost</b><span>Лёд или снежная шуба</span></span>
+        <span class="pt"><b>Намораживает лёд</b><span>Лёд или снежная шуба</span></span>
+      </a>
+      <a class="pc rv" id="ne-vklyuchaetsya" data-wa="nevkl" href="https://wa.me/77773496904" target="_blank" rel="noopener">
+        <img src="assets/w-modul.webp" width="720" height="720" alt="Модуль управления холодильника на ремонте" loading="lazy" decoding="async">
+        <span class="sym"><svg><use href="#ic-power"/></svg></span>
+        <span class="pt"><b>Не включается</b><span>Нет реакции или света</span></span>
       </a>
       <a class="pc rv" id="shumit" data-wa="shumit" href="https://wa.me/77773496904" target="_blank" rel="noopener">
         <img src="assets/w-ventilyator.webp" width="720" height="720" alt="Вентилятор испарителя холодильника No Frost" loading="lazy" decoding="async">
         <span class="sym"><svg><use href="#ic-sound"/></svg></span>
-        <span class="pt"><b>Шумит, гудит, стучит</b><span>Гудит, щёлкает, вибрирует</span></span>
+        <span class="pt"><b>Шумит</b><span>Гудит, щёлкает, вибрирует</span></span>
       </a>
       <a class="pc rv" id="techet" data-wa="techet" href="https://wa.me/77773496904" target="_blank" rel="noopener">
         <img src="assets/w-morozilka.webp" width="720" height="720" alt="Морозильная камера с открытым испарителем" loading="lazy" decoding="async">
         <span class="sym"><svg><use href="#ic-drop"/></svg></span>
         <span class="pt"><b>Течёт вода</b><span>Внутри или под холодильником</span></span>
       </a>
+      <a class="pc rv" id="ne-otklyuchaetsya" data-wa="neotkl" href="https://wa.me/77773496904" target="_blank" rel="noopener">
+        <img src="assets/rab-displey.webp" width="720" height="720" alt="Табло холодильника side-by-side с температурой камер" loading="lazy" decoding="async">
+        <span class="sym"><svg><use href="#ic-clock"/></svg></span>
+        <span class="pt"><b>Работает без остановки</b><span>Постоянно работает, не отключается</span></span>
+      </a>
     </div>
     <a class="ask rv" data-wa="foto" href="https://wa.me/77773496904" target="_blank" rel="noopener">
       <span class="ai"><svg><use href="#ic-chat"/></svg></span>
-      <span class="at"><b>Не знаете, что сломалось?</b><span>Отправьте фото или видео мастеру в WhatsApp - подскажу, с чего начать.</span></span>
+      <span class="at"><b>Не знаете, что сломалось?</b><span>Отправьте фото или видео мастеру в WhatsApp - подскажем, с чего начать.</span></span>
       <span class="btn wa"><svg><use href="#ic-wa"/></svg><span>Отправить фото в WhatsApp</span></span>
     </a>
   </div>
@@ -215,7 +216,7 @@
       <div class="rv">
         <ol class="steps">
           <li><span class="si g"><svg><use href="#ic-tel"/></svg></span><div><h3>Звонок или WhatsApp</h3><p>Опишите, что случилось, и марку холодильника - выезжаю по городу Алматы.</p></div></li>
-          <li><span class="si"><svg><use href="#ic-car"/></svg></span><div><h3>Выезд в день обращения</h3><p>Приезжаю по всему Алматы: сразу после заявки или в удобное вам время.</p></div></li>
+          <li><span class="si"><svg><use href="#ic-car"/></svg></span><div><h3>Выезд мастера</h3><p>Приеду по Алматы в день обращения или в удобное для вас время.</p></div></li>
           <li><span class="si"><svg><use href="#ic-search"/></svg></span><div><h3>Диагностика и цена до начала работы</h3><p>Сначала определяю причину неисправности, объясняю, что необходимо сделать, и называю точную стоимость ремонта до начала работ.</p><p>Не устраивает цена - вы оплачиваете только диагностику, без навязанных работ.</p></div></li>
           <li><span class="si"><svg><use href="#ic-wrench"/></svg></span><div><h3>Ремонт за один визит - с гарантией</h3><p>Большинство неисправностей устраняю непосредственно у вас дома за один визит.</p><p>После ремонта выдаю чек и предоставляю гарантию на выполненные работы до 1 года.</p></div></li>
         </ol>
@@ -236,37 +237,37 @@
         <span class="chip">Диагностика</span>
       </div>
       <div class="dtx">
-        <h2>Сначала нахожу причину</h2>
+        <h2>Сначала находим причину</h2>
         <p class="lead">Проверяю температуру, компрессор, датчики, электронику и систему охлаждения.</p>
         <ul class="dl">
           <li><svg><use href="#ic-ok"/></svg>Точная диагностика неисправности</li>
           <li><svg><use href="#ic-ok"/></svg>Стоимость ремонта до начала работ</li>
           <li><svg><use href="#ic-ok"/></svg>Ремонт только после вашего согласия</li>
         </ul>
-        <a class="btn solid" href="tel:+77773496904"><svg><use href="#ic-tel"/></svg><span>Вызвать мастера</span></a>
+        <a class="btn out" href="tel:+77773496904"><svg><use href="#ic-tel"/></svg><span>Вызвать мастера</span></a>
       </div>
     </article>
 
     <div class="head rv svc-h">
       <h2>Основные услуги</h2>
-      <p class="lead">Устраняю любые неисправности холодильников на дому в Алматы.</p>
+      <p class="lead">Устраняем любые неисправности холодильников на дому в Алматы.</p>
     </div>
     <div class="svc">
-      <article class="sv rv" id="ne-morozit">
-        <div class="sph"><img src="assets/ne-morozit.webp" width="864" height="1080" alt="Обледеневший испаритель No Frost - причина, по которой камера не морозит" loading="lazy" decoding="async"><span class="chip">Не морозит</span></div>
-        <div class="sb"><h3>Не морозит или морозит слабо</h3><p>Фреон, компрессор, датчик, испаритель во льду - разбираюсь в первый визит.</p><a class="btn wa sm" data-wa="nem" href="https://wa.me/77773496904" target="_blank" rel="noopener"><svg><use href="#ic-wa"/></svg><span>Узнать цену</span></a></div>
-      </article>
-      <article class="sv rv" id="kompressor">
-        <div class="sph"><img src="assets/p-kompressor-h.webp" width="1200" height="900" alt="Компрессор холодильника Samsung на ремонте у мастера" loading="lazy" decoding="async"><span class="chip">Компрессор</span></div>
-        <div class="sb"><h3>Замена компрессора на дому</h3><p>Пайка, вакуумирование, заправка по весам. Оригинал или аналог под ваш бюджет.</p><a class="btn wa sm" data-wa="komp" href="https://wa.me/77773496904" target="_blank" rel="noopener"><svg><use href="#ic-wa"/></svg><span>Узнать цену</span></a></div>
-      </article>
       <article class="sv rv" id="freon">
         <div class="sph"><img src="assets/p-freon.webp" width="960" height="1200" alt="Испаритель холодильника: место пайки после устранения утечки фреона" loading="lazy" decoding="async"><video class="loop" data-src="assets/freon-loop.mp4" muted loop playsinline preload="none" aria-hidden="true"></video><span class="chip">Система охлаждения</span></div>
-        <div class="sb"><h3>Утечка и заправка фреоном</h3><p>Ищу утечку, паяю контур, вакуумирую и заправляю точно по норме.</p><a class="btn wa sm" data-wa="freon" href="https://wa.me/77773496904" target="_blank" rel="noopener"><svg><use href="#ic-wa"/></svg><span>Вызвать мастера</span></a></div>
+        <div class="sb"><h3>Найдём и устраним утечку хладагента</h3><p>Ищу место утечки, устраняю неисправность, вакуумирую систему и заправляю холодильник по норме.</p><a class="btn wa sm" data-wa="freon" href="https://wa.me/77773496904" target="_blank" rel="noopener"><svg><use href="#ic-wa"/></svg><span>Проконсультироваться</span></a></div>
+      </article>
+      <article class="sv rv" id="kompressor">
+        <div class="sph"><img src="assets/p-kompressor-h.webp" width="1200" height="900" alt="Компрессор холодильника Samsung на ремонте у мастера" loading="lazy" decoding="async"><span class="chip">Замена компрессора</span></div>
+        <div class="sb"><h3>Замена компрессора на дому</h3><p>Подберём подходящий компрессор, установим, вакуумируем и заправим систему.</p><a class="btn wa sm" data-wa="komp" href="https://wa.me/77773496904" target="_blank" rel="noopener"><svg><use href="#ic-wa"/></svg><span>Узнать стоимость</span></a></div>
+      </article>
+      <article class="sv rv" id="ne-morozit">
+        <div class="sph"><img src="assets/ne-morozit.webp" width="864" height="1080" alt="Обледеневший испаритель No Frost - причина, по которой камера не морозит" loading="lazy" decoding="async"><span class="chip">Не морозит</span></div>
+        <div class="sb"><h3>Холодильник не морозит</h3><p>Фреон, компрессор, датчик или испаритель во льду - найдём причину в первый визит.</p><a class="btn wa sm" data-wa="nem" href="https://wa.me/77773496904" target="_blank" rel="noopener"><svg><use href="#ic-wa"/></svg><span>Узнать стоимость</span></a></div>
       </article>
       <article class="sv rv" id="elektronika">
         <div class="sph"><img src="assets/p-elektronika.webp" width="960" height="1200" alt="Инверторная плата управления холодильника на диагностике" loading="lazy" decoding="async"><span class="chip">Электроника</span></div>
-        <div class="sb"><h3>Ремонт платы управления</h3><p>Чиню модуль на уровне элементов - это дешевле новой платы.</p><a class="btn wa sm" data-wa="el" href="https://wa.me/77773496904" target="_blank" rel="noopener"><svg><use href="#ic-wa"/></svg><span>Показать плату</span></a></div>
+        <div class="sb"><h3>Ремонт платы управления</h3><p>Если плату можно восстановить - ремонтируем её на компонентном уровне. Это часто дешевле полной замены модуля.</p><a class="btn wa sm" data-wa="el" href="https://wa.me/77773496904" target="_blank" rel="noopener"><svg><use href="#ic-wa"/></svg><span>Показать плату мастеру</span></a></div>
       </article>
     </div>
   </div>
@@ -316,20 +317,28 @@
       </div>
     </div>
 
-    <h2 class="why-h rv">Почему выбирают меня</h2>
+    <h2 class="why-h rv">Почему выбирают нас?</h2>
     <div class="why">
-      <div class="rv"><i><svg><use href="#ic-star"/></svg></i><p><b>3000+</b><span>клиентов в Алматы</span></p></div>
-      <div class="rv"><i><svg><use href="#ic-shield"/></svg></i><p><b>Гарантия</b><span>на работу до 1 года</span></p></div>
+      <div class="rv"><i><svg><use href="#ic-star"/></svg></i><p><b>25+ лет</b><span>опыта мастера</span></p></div>
+      <div class="rv"><i><svg><use href="#ic-shield"/></svg></i><p><b>Гарантия</b><span>до 1 года</span></p></div>
       <div class="rv"><i><svg><use href="#ic-tag"/></svg></i><p><b>Честная цена</b><span>до начала работ</span></p></div>
       <div class="rv"><i><svg><use href="#ic-user"/></svg></i><p><b>Один мастер</b><span>от обращения до ремонта</span></p></div>
     </div>
 
-    <h2 class="why-h rv">Ремонтирую большинство марок</h2>
+    <h2 class="why-h rv">Ремонтируем большинство марок</h2>
     <div class="brs rv" aria-label="Марки холодильников">
       <span class="b-sam">SAMSUNG</span><span class="b-lg">LG</span><span class="b-bo">BOSCH</span><span class="b-li">LIEBHERR</span>
       <span class="b-ha">Haier</span><span class="b-in">indesit</span><span class="b-at">ATLANT</span><span class="b-be">beko</span>
     </div>
-    <p class="brn rv">Также Ariston, Whirlpool, Electrolux, Sharp, Toshiba, Daewoo, Бирюса. Не нашли свою марку? Напишите мастеру.</p>
+    <p class="brn rv">Не нашли свою марку? Напишите мастеру.</p>
+
+    <div class="help rv">
+      <div><h2>Нужна помощь с холодильником?</h2><p>Напишите или позвоните - мы подскажем решение.</p></div>
+      <div class="btns">
+        <a class="btn wa" data-wa="hero" href="https://wa.me/77773496904" target="_blank" rel="noopener"><svg><use href="#ic-wa"/></svg><span>Написать в WhatsApp</span></a>
+        <a class="btn out" href="tel:+77773496904"><svg><use href="#ic-tel"/></svg><span>Позвонить</span></a>
+      </div>
+    </div>
 
     <div class="lane-w rv" id="raboty">
       <button class="lbtn prev" type="button" aria-label="Назад"><svg style="transform:rotate(180deg)"><use href="#ic-arr"/></svg></button>
@@ -415,6 +424,6 @@
   <a class="i" href="https://www.instagram.com/holodilnik_remont_almati/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-ig"/></svg></a>
 </div>
 
-<script src="script.js?v=20261001-2"></script>
+<script src="script.js?v=20261001-4"></script>
 </body>
 </html>
