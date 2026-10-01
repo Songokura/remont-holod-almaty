@@ -67,6 +67,10 @@ document.addEventListener("click", function(e){
   try { history.pushState(null, "", "#" + id); } catch(err){}
 });
 
+var hdrEl = document.getElementById("hdr");
+function hdrState(){ if (hdrEl) hdrEl.classList.toggle("solid", scrollY > 40); }
+addEventListener("scroll", hdrState, {passive:true});
+hdrState();
 var bar = document.getElementById("bar");
 var kont = document.getElementById("kontakty");
 function barState(){

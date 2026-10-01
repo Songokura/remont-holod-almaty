@@ -418,3 +418,8 @@ html:not(.js) .rv{opacity:1;transform:none}
 @media(max-width:600px){.sb .btn.sm{white-space:normal;height:auto;min-height:42px;padding:7px 8px;line-height:1.15;text-align:center;font-size:12.5px}.sb .btn.sm svg{width:14px;height:14px}}
 @media(max-width:600px){.sb .btn.sm svg{display:none}}
 @media(max-width:760px){.hdr-in{width:calc(100% - 24px);gap:10px}.hdr .logo{min-width:0}.hdr .logo b{font-size:min(14px,3.55vw)}.hdr-r{flex:0 0 auto}}
+.hdr{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;transition:background .3s,box-shadow .3s}
+.hdr.solid{background:rgba(255,255,255,.92);box-shadow:0 1px 0 rgba(15,27,45,.07)}
+@media(max-width:760px){.hdr,.hdr.solid{background:transparent;border-color:transparent;box-shadow:none}}
+@media(min-width:761px){.hero::before{content:"";position:absolute;inset:0 0 auto 0;height:150px;z-index:1;background:linear-gradient(180deg,rgba(247,250,254,.9),rgba(247,250,254,0))}}
+.hprice > div{background:transparent;box-shadow:none;border:1.5px solid rgba(31,111,235,.4)}
